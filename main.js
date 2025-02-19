@@ -64,6 +64,10 @@ let scale = 16;
 updateSize(width, height, scale);
 
 function updateSize(w, h, s) {
+    if(w == undefined || w == null || w == ""){
+        updateSize($('width').value, $('height').value, $('scale').value);
+        return;
+    }
     $("canvas").width = w * s;
     $("canvas").height = h * s;
     width = w;
