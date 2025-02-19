@@ -1,34 +1,36 @@
 <title>ImgGen</title>
-<body style="background-color: rgb(60, 60, 60);">
-<textarea rows="30" cols="100" id="code">
+
+<body style="background-color: rgb(60, 60, 60);" onmouseup="updateMouseDown(false)">
+    <textarea rows="30" cols="100" id="code">
 pixel.r = 255/w*(x+1);
 pixel.g = 255/h*(y+1);
 return pixel;
 </textarea>
-<canvas width="512" height="512" id="canvas" style="border: 1px solid white; background-color: black;"></canvas>
-<br>
-<h3>Rendering</h3>
-<button onclick="reload()">Reload</button>
-<br>
-<h3>Size</h3>
-<input type="number" placeholder="Width" id="width" min="1" max="4096">
-<input type="number" placeholder="Height" id="height" min="1" max="4096">
-<input type="number" placeholder="Scale" id="scale" min="0.01" max="200">
-<button onclick="updateSize()">Update</button>
-<br>
-<h3>Tick</h3>
-<input type="number" min="1" max="1000000000" placeholder="Tick" id="tick">
-<button onclick="setTick(Number($('tick').value))">Update</button>
-<button onclick="setTick(0)">Set to 0</button>
-<br>
-<h3>Animation</h3>
-<input type="number" min="0.1" max="120" placeholder="FPS" id="fps">
-<button onclick="startAnimation(Number($('fps').value))">Start</button>
-<button onclick="stopAnimation()">Stop</button>
-<br>
-<h3>Logs</h3>
-<textarea id="log" rows="20" cols="130"></textarea>
-<br>
-<h1>Made by Hikne | <a href="https://github.com/Hikne2/ImageGenerator">Github</a></h1>
+    <canvas width="512" height="512" id="canvas" style="border: 1px solid white; background-color: black;"
+        onmousemove="updateMousePos(event)" onmousedown="updateMouseDown(true)"></canvas>
+    <br>
+    <h3>Rendering</h3>
+    <button onclick="reload()">Reload</button>
+    <br>
+    <h3>Size</h3>
+    <input type="number" placeholder="Width" id="width" min="1" max="4096">
+    <input type="number" placeholder="Height" id="height" min="1" max="4096">
+    <input type="number" placeholder="Scale" id="scale" min="0.01" max="200">
+    <button onclick="updateSize()">Update</button>
+    <br>
+    <h3>Tick</h3>
+    <input type="number" min="1" max="1000000000" placeholder="Tick" id="tick">
+    <button onclick="setTick(Number($('tick').value))">Update</button>
+    <button onclick="setTick(0)">Set to 0</button>
+    <br>
+    <h3>Animation</h3>
+    <input type="number" min="0.1" max="120" placeholder="FPS" id="fps">
+    <button onclick="startAnimation(Number($('fps').value))">Start</button>
+    <button onclick="stopAnimation()">Stop</button>
+    <br>
+    <h3>Logs</h3>
+    <textarea id="log" rows="20" cols="130"></textarea>
+    <br>
+    <h1>Made by Hikne | <a href="https://github.com/Hikne2/ImageGenerator">Github</a></h1>
 </body>
 <script src="./main.js"></script>

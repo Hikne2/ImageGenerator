@@ -40,6 +40,9 @@ const y = ${y};
 const i = ${i};
 const w = ${width};
 const h = ${height};
+const mx = ${mouseX};
+const my = ${mouseY};
+const md = ${mouseDown};
 `
 }
 function runCode() {
@@ -89,4 +92,32 @@ function stopAnimation() {
 
 function setTick(val) {
     tick = val;
+}
+
+let mouseX;
+let mouseY;
+
+function updateMousePos(e) {
+    let rect = $('canvas').getBoundingClientRect();
+    mouseX = e.clientX - rect.left;
+    mouseY = e.clientY - rect.top;
+    mouseX = minMax(mouseX, 0, width*scale);
+    mouseY = minMax(mouseY, 0, height*scale);
+    mouseX = mouseX/scale;
+    mouseY = mouseY/scale;
+    
+}
+
+function minMax(v, min, max) {
+    if (v < min) {
+        return min;
+    }
+    if (v > max) {
+        return max;
+    }
+    return v;
+}
+
+function updateMouseDown(y){
+    mouseDown = y;
 }
