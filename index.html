@@ -1,8 +1,8 @@
 <title>ImgGen</title>
 <body style="background-color: rgb(60, 60, 60);">
 <textarea rows="30" cols="100" id="code">
-pixel.r = x;
-pixel.g = y;
+pixel.r = 255/w*(x+1);
+pixel.g = 255/h*(y+1);
 return pixel;
 </textarea>
 <canvas width="512" height="512" id="canvas" style="border: 1px solid white; background-color: black;"></canvas>
@@ -14,4 +14,4 @@ return pixel;
 <button onclick="updateSize()">Update</button>
 <h1>Made by Hikne</h1>
 </body>
-<script src="main.js"></script>
+<script src="./main.js"></script>
