@@ -1,10 +1,5 @@
 $ = (x) => { return document.getElementById(x + ""); }
 
-let width = 32;
-let height = 32;
-let scale = 16;
-$("canvas").width = width * scale;
-$("canvas").height = height * scale;
 
 let pixels = new Array(width);
 for (var i = 0; i < pixels.length; i++) {
@@ -60,4 +55,18 @@ function render() {
             drawPixel(x, y, p.r, p.g, p.b, p.a);
         }
     }
+}
+
+
+let width = 32;
+let height = 32;
+let scale = 16;
+updateSize(width, height, scale);
+
+function updateSize(w, h, s) {
+    $("canvas").width = w * s;
+    $("canvas").height = h * s;
+    width = w;
+    height = h;
+    scale = s;
 }
