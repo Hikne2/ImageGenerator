@@ -40,8 +40,8 @@ const y = ${y};
 const i = ${i};
 const w = ${width};
 const h = ${height};
-const mx = ${mouseX};
-const my = ${mouseY};
+const mx = ${mouseX-0.5};
+const my = ${mouseY-0.5};
 const md = ${mouseDown};
 `
 }
