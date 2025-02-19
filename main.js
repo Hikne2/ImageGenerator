@@ -69,3 +69,17 @@ function updateSize(w, h, s) {
 }
 
 updateSize(width, height, scale);
+
+let animationI;
+
+function startAnimation(fps){
+    animationI = setInterval(reload(), )
+}
+
+function stopAnimation(){
+    clearInterval(animationI);
+}
+
+function setTick(val){
+    tick = val;
+}
