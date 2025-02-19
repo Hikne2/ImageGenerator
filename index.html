@@ -22,9 +22,13 @@ return pixel;
 <button onclick="setTick(0)">Set to 0</button>
 <br>
 <h3>Animation</h3>
-<input type="number" min="0.1" max="60" placeholder="FPS" id="fps" value="10">
+<input type="number" min="0.1" max="120" placeholder="FPS" id="fps">
 <button onclick="startAnimation(Number($('fps').value))">Start</button>
 <button onclick="stopAnimation()">Stop</button>
-<h1>Made by Hikne</h1>
+<br>
+<h3>Logs</h3>
+<textarea id="log" rows="20" cols="130"></textarea>
+<br>
+<h1>Made by Hikne | <a href="https://github.com/Hikne2/ImageGenerator">Github</a></h1>
 </body>
 <script src="./main.js"></script>

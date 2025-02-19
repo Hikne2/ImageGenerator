@@ -11,19 +11,23 @@ let pixels;
 
 let tick = 1;
 function reload() {
+    $('log').innerHTML = "";
     ctx.clearRect(0, 0, width, height);
     let i = 1;
-    for (var x = 0; x < pixels.length; x++) {
-        for (var y = 0; y < pixels[x].length; y++) {
-            updateBasicCode(x, y, i);
-            let res = runCode();
-            pixels[x][y] = res;
-            drawPixel(x, y, res.r, res.g, res.b, res.a);
-            i += 1;
+    try {
+        for (var x = 0; x < pixels.length; x++) {
+            for (var y = 0; y < pixels[x].length; y++) {
+                updateBasicCode(x, y, i);
+                let res = runCode();
+                pixels[x][y] = res;
+                drawPixel(x, y, res.r, res.g, res.b, res.a);
+                i += 1;
+            }
         }
+    } catch (error) {
+        $('log').innerHTML += error + "\n";
     }
-    
-    tick++;
+
 }
 
 let basicCode;
@@ -72,14 +76,17 @@ updateSize(width, height, scale);
 
 let animationI;
 
-function startAnimation(fps){
-    animationI = setInterval(reload(), )
+function startAnimation(fps) {
+    animationI = setInterval(function () {
+        reload();
+        tick++;
+    }, 1000 / fps)
 }
 
-function stopAnimation(){
+function stopAnimation() {
     clearInterval(animationI);
 }
 
-function setTick(val){
+function setTick(val) {
     tick = val;
 }
